@@ -1,0 +1,180 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+body {
+  @apply bg-diaryPinkSoft text-diaryText font-rounded;
+}
+
+/* Pink grid background */
+.diary-bg {
+  background-color: #ffe6f0;
+  background-image:
+    linear-gradient(to right, rgba(255, 192, 203, 0.35) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 192, 203, 0.35) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+.ribbon-btn {
+  @apply rounded-full px-5 py-3 font-semibold shadow-md bg-[#ffe8f1] border border-pink-200 text-diaryText transition-transform duration-150;
+}
+
+.ribbon-btn-primary {
+  @apply bg-[#ffb6d9] border-pink-300 text-white shadow-diary;
+}
+
+.ribbon-btn:active {
+  transform: translateY(1px) scale(0.99);
+}
+
+.theme-pill {
+  @apply px-4 py-1 rounded-full border border-pink-200 text-xs font-medium cursor-pointer bg-white/70 hover:bg-white;
+}
+
+.theme-pill-active {
+  @apply bg-[#ffb6d9] text-white border-pink-400;
+}
+
+input::file-selector-button {
+  display: none;
+}
+
+@keyframes crownDrop {
+  0% {
+    transform: translateY(-40px);
+    opacity: 0;
+  }
+  70% {
+    transform: translateY(4px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.crown-drop {
+  animation: crownDrop 650ms ease-out forwards;
+}
+
+@keyframes crownGlitter {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 0 rgba(255, 215, 0, 0));
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.9));
+    transform: translateY(-2px) scale(1.06);
+  }
+}
+
+.crown-glitter {
+  animation: crownGlitter 1400ms ease-in-out infinite;
+}
+/* Glittering crown animations */
+
+@keyframes crownDrop {
+  0% {
+    transform: translateY(-40px);
+    opacity: 0;
+  }
+  70% {
+    transform: translateY(4px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.crown-drop {
+  animation: crownDrop 650ms ease-out forwards;
+}
+
+@keyframes crownGlitter {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 0 rgba(255, 215, 0, 0));
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    filter: drop-shadow(0 0 12px rgba(255, 215, 0, 0.9));
+    transform: translateY(-2px) scale(1.06);
+  }
+}
+
+.crown-glitter {
+  animation: crownGlitter 1400ms ease-in-out infinite;
+}
+
+.crown-draggable {
+  cursor: grab;
+}
+
+/* Glitter border around crowned image */
+
+@keyframes glitterBorder {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 192, 203, 0.3),
+      0 0 0 0 rgba(255, 255, 255, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 12px 2px rgba(255, 192, 203, 0.6),
+      0 0 20px 4px rgba(255, 255, 255, 0.8);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 192, 203, 0.3),
+      0 0 0 0 rgba(255, 255, 255, 0.4);
+  }
+}
+
+.glitter-frame {
+  animation: glitterBorder 2.2s ease-in-out infinite;
+}
+
+/* Floating sparkles */
+
+@keyframes sparkleFloat {
+  0% {
+    transform: translateY(30px) scale(0.7);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-40px) scale(1);
+    opacity: 0;
+  }
+}
+
+.sparkle-dot {
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  border-radius: 9999px;
+  background: radial-gradient(
+    circle at 30% 30%,
+    #ffffff,
+    #ffe4f2 40%,
+    #ff9fd8 70%,
+    transparent 100%
+  );
+  opacity: 0.8;
+  animation-name: sparkleFloat;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-duration: var(--sparkle-duration, 18s);
+  animation-delay: var(--sparkle-delay, 0s);
+}
